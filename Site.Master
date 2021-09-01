@@ -1,0 +1,46 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="EjercicioPropuesto2.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="es"><head>
+    <title>Electrodomesticos</title>
+</head>
+    
+<script languaje ="C#" runat="server">
+    void MostrarInfo(Object sender, EventArgs argumentos) {
+        if(Lista.Value == "1")
+        {
+            etiqueta.InnerText = "Codigo: 0001, Nombre: Microondas, Descripcion: Horno eléctrico que emite radiaciones electromagnéticas " +
+                    "con las que los alimentos se calientan, cuecen o cocinan rápidamente., Marca: LG, Precio: S/ 300.00";
+            cuerpo.Style["background-color"] = "red";
+        }        if(Lista.Value == "2")
+        {
+            etiqueta.InnerText = "Codigo: 0002, Nombre: Lavadora, Descripcion: Electrodoméstico " +
+                   "que sirve para lavar la vajilla, los cubiertos y los utensilios de cocina, Marca: LG, Precio: S/ 700.00";
+            cuerpo.Style["background-color"] = Lista.Value;
+        }        if(Lista.Value == "3")
+        {
+            etiqueta.InnerText = "Codigo: 0003, Nombre: Refrigerador, Descripcion: dispone de aberturas para la introducción de la nieve y posteriormente la extracción del hielo.., Marca: Samsung, Precio: S/ 1200.00";
+        }    }
+</script>
+
+<body id ="cuerpo" runat="server">
+
+    <h1>Electrodomesticos</h1>
+
+ <form id="WebForm" method="post" runat="server">
+ <select id="Lista" name="lista" runat="server">
+ <option value="1" >Microondas</option>
+ <option value="2">Lavadora</option>
+ <option value="3">Refrigerador</option>
+ </select>
+ <input type="button" runat="server" id="boton" value="MostrarInfo"
+onserverclick="MostrarInfo"/>
+     <input type="submit" id="MostrarGrafico" runat="server" value="Mostrar
+Figura" OnServerClick ="MostrarGrafico_ServerClick" />
+     <img id="Grafico" runat="server" />
+     <div id="etiqueta" runat="server"></div>
+     <br/><br/>
+
+ </form>
+</body>
+</html>
